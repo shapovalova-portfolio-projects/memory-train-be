@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { MemoryCardsModule } from './memory-cards/memory-cards.module';
+import { User } from './auth/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import configuration from '../config/configuration';
 
@@ -13,6 +14,7 @@ import configuration from '../config/configuration';
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.development.env'}),
+    TypeOrmModule.forFeature([User]),
     TypeOrmModule.forRoot({
       type: 'postgres',
       autoLoadEntities: true,

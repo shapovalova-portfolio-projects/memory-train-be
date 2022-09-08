@@ -1,6 +1,0 @@
-
-
-@Entity
-export class UserEntity {
-
-}

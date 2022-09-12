@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AuthService } from './auth.service';

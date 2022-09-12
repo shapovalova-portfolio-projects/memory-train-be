@@ -6,19 +6,24 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { MemoryCardsModule } from './memory-cards/memory-cards.module';
+import { User } from './auth/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import configuration from '../config/configuration';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.development.env'}),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      autoLoadEntities: true,
-      synchronize: true,
-      entities: [User],
-      ...configuration().database
+      envFilePath: '.development.env'
+    }),
+    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        type: 'postgres',
+        autoLoadEntities: true,
+        synchronize: true,
+        entities: [User],
+        ...configuration().database
+      })
     }),
     MemoryCardsModule,
     AuthModule,
@@ -26,4 +31,4 @@ import configuration from '../config/configuration';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

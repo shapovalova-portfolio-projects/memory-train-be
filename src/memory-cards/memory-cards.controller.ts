@@ -1,9 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
 import { MemoryCardsService } from './memory-cards.service';
 import { CreateMemoryCardDto } from './dto/create-memory-card.dto';
 import { UpdateMemoryCardDto } from './dto/update-memory-card.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('memory-cards')
+@UseGuards(AuthGuard())
 export class MemoryCardsController {
   constructor(private readonly memoryCardsService: MemoryCardsService) {}
 
@@ -23,7 +34,10 @@ export class MemoryCardsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMemoryCardDto: UpdateMemoryCardDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateMemoryCardDto: UpdateMemoryCardDto,
+  ) {
     return this.memoryCardsService.update(+id, updateMemoryCardDto);
   }
 

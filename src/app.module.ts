@@ -9,19 +9,20 @@ import { MemoryCardsModule } from './memory-cards/memory-cards.module';
 import { User } from './auth/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import configuration from '../config/configuration';
+import { MemoryCard } from './memory-cards/entities/memory-card.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.development.env',
     }),
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User, MemoryCard]),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',
         autoLoadEntities: true,
         synchronize: true,
-        entities: [User],
+        entities: [User, MemoryCard],
         ...configuration().database,
       }),
     }),

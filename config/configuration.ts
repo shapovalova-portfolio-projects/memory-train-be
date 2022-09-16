@@ -1,5 +1,6 @@
 export default () => ({
     port: parseInt(process.env.PORT, 10) || 3000,
+    jwtSecret: process.env.JWT_SECRET,
     database: {
       host: process.env.PG_HOST,
       port: parseInt(process.env.PG_PORT, 10) || 5432,

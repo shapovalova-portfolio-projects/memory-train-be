@@ -13,7 +13,7 @@ import configuration from '../config/configuration';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.development.env'
+      envFilePath: '.development.env',
     }),
     TypeOrmModule.forFeature([User]),
     TypeOrmModule.forRootAsync({
@@ -22,8 +22,8 @@ import configuration from '../config/configuration';
         autoLoadEntities: true,
         synchronize: true,
         entities: [User],
-        ...configuration().database
-      })
+        ...configuration().database,
+      }),
     }),
     MemoryCardsModule,
     AuthModule,
@@ -31,4 +31,4 @@ import configuration from '../config/configuration';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'src/auth/entities/user.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class MemoryCard {
@@ -16,4 +17,7 @@ export class MemoryCard {
 
   @Column()
   audioSource: string;
+
+  @ManyToOne(() => User, (user) => user.memoryCards, { eager: false })
+  user: User;
 }

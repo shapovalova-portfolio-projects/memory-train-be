@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { MemoryCard } from 'src/memory-cards/entities/memory-card.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -16,4 +17,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @OneToMany(() => MemoryCard, (memoryCard) => memoryCard.user, {
+    eager: true,
+  })
+  memoryCards: MemoryCard[];
 }

@@ -10,6 +10,7 @@ async function bootstrap() {
     .setDescription('API for memory train application')
     .setVersion('1.0')
     .addTag('memorytrain')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

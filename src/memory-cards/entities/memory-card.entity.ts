@@ -18,6 +18,6 @@ export class MemoryCard {
   @Column()
   audioSource: string;
 
-  @ManyToOne((_type) => User, (user) => user.memoryCards, { eager: false })
+  @ManyToOne(() => User, (user) => user.memoryCards, { eager: false })
   user: User;
 }

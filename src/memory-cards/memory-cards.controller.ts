@@ -35,7 +35,10 @@ export class MemoryCardsController {
     description: 'The found records',
     type: MemoryCard,
   })
-  create(@Body() memoryCard: MemoryCard, @GetUser() user: User): Promise<MemoryCard> {
+  create(
+    @Body() memoryCard: MemoryCard,
+    @GetUser() user: User,
+  ): Promise<MemoryCard> {
     return this.memoryCardsService.create(memoryCard, user);
   }
 

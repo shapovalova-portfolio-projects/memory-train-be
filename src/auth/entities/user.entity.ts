@@ -18,7 +18,7 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany((_type) => MemoryCard, (memoryCard) => memoryCard.user, {
+  @OneToMany(() => MemoryCard, (memoryCard) => memoryCard.user, {
     eager: true,
   })
   memoryCards: MemoryCard[];

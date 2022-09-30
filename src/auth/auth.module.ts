@@ -21,7 +21,7 @@ import { ConfigModule } from '@nestjs/config';
       useFactory: () => ({
         secret: configuration().jwtSecret,
         signOptions: {
-          expiresIn: 3600,
+          expiresIn: 3600000,
         },
       }),
     }),

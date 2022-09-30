@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
+import { LearningProgram } from 'src/learning-program/entities/learning-program.entity';
 import { MemoryCard } from 'src/memory-cards/entities/memory-card.entity';
 import { Progress } from 'src/progress/entities/progress.entity';
 
@@ -29,4 +30,9 @@ export class User {
     eager: true,
   })
   progress: Progress[];
+
+  @OneToMany(() => LearningProgram, (learningProgram) => learningProgram.user, {
+    eager: true,
+  })
+  learningPrograms: LearningProgram[];
 }

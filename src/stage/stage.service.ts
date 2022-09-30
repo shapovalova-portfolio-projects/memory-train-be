@@ -16,10 +16,11 @@ export class StageService {
   ) {}
 
   async create(stage: Stage): Promise<Stage> {
-    const { timeSpan, activities } = stage;
+    const { timeSpan, activities, learningProgram } = stage;
     const createdStage = this.stageRepository.create({
       timeSpan,
       activities,
+      learningProgram,
     });
     await this.stageRepository.save(createdStage);
     return createdStage;

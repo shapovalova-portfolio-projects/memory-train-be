@@ -13,10 +13,11 @@ export class ProgressService {
   ) {}
 
   async create(progress: Progress, user: User): Promise<Progress> {
-    const { status, stageNumber } = progress;
+    const { status, stageNumber, learningProgram } = progress;
     const createdProgress = this.progressRepository.create({
       status,
       stageNumber,
+      learningProgram,
       user,
     });
     await this.progressRepository.save(createdProgress);

@@ -14,19 +14,21 @@ import { Stage } from './stage/entities/stage.entity';
 import { StageModule } from './stage/stage.module';
 import { Progress } from './progress/entities/progress.entity';
 import { ProgressModule } from './progress/progress.module';
+import { LearningProgram } from './learning-program/entities/learning-program.entity';
+import { LearningProgramModule } from './learning-program/learning-program.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.development.env',
     }),
-    TypeOrmModule.forFeature([User, MemoryCard, Stage, Progress]),
+    TypeOrmModule.forFeature([User, MemoryCard, Stage, Progress, LearningProgram]),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',
         autoLoadEntities: true,
         synchronize: true,
-        entities: [User, MemoryCard, Stage, Progress],
+        entities: [User, MemoryCard, Stage, Progress, LearningProgram],
         ...configuration().database,
       }),
     }),
@@ -34,6 +36,7 @@ import { ProgressModule } from './progress/progress.module';
     AuthModule,
     StageModule,
     ProgressModule,
+    LearningProgramModule,
   ],
   controllers: [AppController],
   providers: [AppService],

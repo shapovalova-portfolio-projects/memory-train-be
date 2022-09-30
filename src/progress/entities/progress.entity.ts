@@ -12,7 +12,7 @@ export class Progress {
   @Column()
   status: Status;
 
-  @Column("int")
+  @Column('int')
   stageNumber: number;
 
   @ManyToOne(() => User, (user) => user.progress, { eager: false })

@@ -11,7 +11,7 @@ export class Stage {
   @Column('int')
   timeSpan: number;
 
-  @Column("text", { array: true })
+  @Column('text', { array: true })
   activities: Activity[];
 
   @ManyToOne(

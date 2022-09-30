@@ -8,6 +8,6 @@ import { LearningProgramService } from './learning-program.service';
 @Module({
   imports: [TypeOrmModule.forFeature([LearningProgram]), AuthModule],
   controllers: [LearningProgramController],
-  providers: [LearningProgramService]
+  providers: [LearningProgramService],
 })
 export class LearningProgramModule {}

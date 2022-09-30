@@ -8,6 +8,6 @@ import { ProgressService } from './progress.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Progress]), AuthModule],
   controllers: [ProgressController],
-  providers: [ProgressService]
+  providers: [ProgressService],
 })
 export class ProgressModule {}

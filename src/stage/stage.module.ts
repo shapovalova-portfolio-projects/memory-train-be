@@ -6,10 +6,8 @@ import { StageController } from './stage.controller';
 import { StageService } from './stage.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([
-    Stage
-  ]), AuthModule],
+  imports: [TypeOrmModule.forFeature([Stage]), AuthModule],
   controllers: [StageController],
-  providers: [StageService]
+  providers: [StageService],
 })
 export class StageModule {}

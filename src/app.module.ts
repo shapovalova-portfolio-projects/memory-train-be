@@ -22,7 +22,13 @@ import { LearningProgramModule } from './learning-program/learning-program.modul
     ConfigModule.forRoot({
       envFilePath: '.development.env',
     }),
-    TypeOrmModule.forFeature([User, MemoryCard, Stage, Progress, LearningProgram]),
+    TypeOrmModule.forFeature([
+      User,
+      MemoryCard,
+      Stage,
+      Progress,
+      LearningProgram,
+    ]),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',

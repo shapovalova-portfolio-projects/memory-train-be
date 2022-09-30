@@ -17,12 +17,12 @@ export class StageService {
 
   async create(stage: Stage): Promise<Stage> {
     const { timeSpan, activities } = stage;
-    const createdMemoryTask = this.stageRepository.create({
+    const createdStage = this.stageRepository.create({
       timeSpan,
       activities,
     });
-    await this.stageRepository.save(createdMemoryTask);
-    return createdMemoryTask;
+    await this.stageRepository.save(createdStage);
+    return createdStage;
   }
 
   async findAll(): Promise<Stage[]> {

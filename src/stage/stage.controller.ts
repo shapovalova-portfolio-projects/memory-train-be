@@ -38,7 +38,7 @@ import {
       return this.stageService.create(stage);
     }
     @Get()
-    @ApiOperation({ summary: 'Get all memory cards' })
+    @ApiOperation({ summary: 'Get all stages' })
     @ApiResponse({
       status: 200,
       description: 'The found records',
